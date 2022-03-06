@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background: #0f0c29;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  
+                background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+            }
+            .location{
+                border: 2px solid rgb(255, 255, 255);
+                box-shadow: 10px 15px 5px rgb(27, 27, 27);
+                margin-left: -11px;
+                width: 800px;
+
+            }
+            #click{
+                margin-left: 642px;
+            }
+            .btn{
+                
+                margin-left: 740px;
+                margin-bottom:40px;
+            }
+        </style>
+    </head>
+<body>
+<center><h1 style="color: rgb(255, 255, 255);
+    text-shadow: 5px 5px #000000;font-family: 'Brush Script MT';font-size: 60px;">Location App</h2></center>
+<b><p style="color: aliceblue;
+    text-shadow: 3px 5px #000000;font-family: Georgia, serif;" id="click">Click below to get your coordinates.</p></b><br>
+<button class="btn" onclick="getLocation()"><img style="width: 60px;" src="loc.png" alt=""></button>
+<center><div class="location"><p style="color:aliceblue;font-family: Georgia, serif;" id="demo"></p></div></center>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+} 
+function showPosition(position) {
+    x.innerHTML="Your Location<br><br> Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</body>
+</html>
+
